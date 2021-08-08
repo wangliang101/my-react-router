@@ -1,9 +1,10 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
+  // BrowserRouter as Router,
   Switch,
   Route,
 } from 'react-router-dom';
+import {BrowserRouter as Router} from './myReactRouter'
 import Home from './pages/home';
 import Login from './pages/login';
 import Backend from './pages/backend';
@@ -13,7 +14,7 @@ function App() {
   return (
     <Router>
       <Switch>
-      <Route path="/login" component={Login}/>
+        <Route path="/login" component={Login}/>
         <Route path="/backend" component={Backend}/>
         <Route path="/admin" component={Admin}/>
         <Route path="/" component={Home}/>
