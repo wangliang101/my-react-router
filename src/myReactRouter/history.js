@@ -45,3 +45,35 @@ function createBrowserHistory(){
 
   return history
 }
+
+export default createBrowserHistory;
+
+// history里一些其他方法
+export function parsePath(path){
+  let partialPath = {
+    // pathname: '/',
+    // search: '?',
+    // hash: '#'
+  }
+  if(path){
+    let hashIndex = path.indexOf('#');
+    if(hashIndex > 0){
+      partialPath.hash = path.substr(hashIndex)
+      path = path.substr(0, hashIndex)
+    }
+
+    let searchIndex = path.indexOf('?');
+    if(searchIndex > 0){
+      partialPath.search = path.substr(searchIndex);
+      path = path.substr(0, searchIndex)
+    }
+
+    if(path){
+      partialPath.path = path
+    }
+  }
+}
+
+export function createPath({pathname = '/', search = '', hash=''}){
+  return pathname + search + hash
+}
