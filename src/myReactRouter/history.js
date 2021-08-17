@@ -40,6 +40,16 @@ function createBrowserHistory(){
     listen(listener){
       return listeners.push(listener)
     },
+    push(url){
+      const history = window.history
+      // 这里的pushState并不会触发popstate
+      // 但是我们仍然要这样做，是为了保持state的一致性
+      history.pushState(null, '', url)
+
+      // 由于push并不触发popstate,我们需要手动调用回调函数
+      location = {pathname: url}
+      listeners.call(location)
+    },
     location
   }
 
