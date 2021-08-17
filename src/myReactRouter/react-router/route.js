@@ -16,8 +16,9 @@ import matchPath from './matchPath';
             // 从RouterContext获取location
             const location = context.location;
             // 调用matchPath检测当前路由是否匹配
-            const match = matchPath(location.pathname, this.props)
-
+            // const match = matchPath(location.pathname, this.props)
+            const match = this.props.computeMatch ? this.props.computeMatch : matchPath(location.pathname, this.props)
+            
             const props = {...context, location, match}
 
             let {component} = this.props;
