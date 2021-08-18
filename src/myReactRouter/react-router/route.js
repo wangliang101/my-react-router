@@ -13,6 +13,8 @@ import matchPath from './matchPath';
        <RouterContext.Consumer>
         {
           context => {
+          console.log('context', context)
+
             // 从RouterContext获取location
             const location = context.location;
             // 调用matchPath检测当前路由是否匹配

@@ -1,10 +1,10 @@
 import React from 'react';
-import {
-  // BrowserRouter as Router,
-  Switch,
-  Route,
-} from 'react-router-dom';
-import {BrowserRouter as Router} from './myReactRouter'
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+// } from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route} from './myReactRouter'
 import Home from './pages/home';
 import Login from './pages/login';
 import Backend from './pages/backend';
