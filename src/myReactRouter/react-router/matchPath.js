@@ -8,7 +8,7 @@ function compilePath(path, options){
   const cacheKey = `${options.end}${options.strict}${options.sensitive}`;
   const pathCache = cache[cacheKey] || (cache[cacheKey] = {})
 
-  if(pathCache[path]) return pathCache(path)
+  if(pathCache[path]) return pathCache[path]
 
   const keys = [];
   const regexp = pathToRegexp(path, keys, options);
@@ -47,7 +47,7 @@ function compilePath(path, options){
     const [url, ...values] = match;
     const isExact = pathname === url;
 
-    if(exact && !isExact) return;
+    if(exact && !isExact) return　null;
     
     return{
       path, // the path used to match

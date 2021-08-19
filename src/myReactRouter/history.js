@@ -10,8 +10,8 @@ function createEvents(){
         handlers = handlers.filter(handler => handler !== fn)
       }
     },
-    call(args){
-　　   handlers.forEach(fn => fn && fn(args))
+    call(arg){
+　　   handlers.forEach(fn => fn && fn(arg))
     }
   }
 }

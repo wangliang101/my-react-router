@@ -15,7 +15,9 @@ function LinkAnchor({navigate, ...rest}){
   return <a {...props} />
 } 
 
-const Link = ({compoent, LinkAnchor, to, ...rest}) => {
+const Link = ({
+  component = LinkAnchor,  
+  to, ...rest}) => {
   return (
     <RouterContext.Consumer>
       {context => {
@@ -27,11 +29,11 @@ const Link = ({compoent, LinkAnchor, to, ...rest}) => {
           ...rest,
           href: to,
           navigate(){
-            history.push()
+            history.push(to)
           }
         }
 
-        return React.createElement(compoent, props)
+        return React.createElement(component, props)
       }}
     </RouterContext.Consumer>
   )
